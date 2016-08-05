@@ -11,8 +11,16 @@ with open(filename,'r+') as input:
 	with open(outfile, 'wb') as output:
 		for line in input:
 			ok = line.replace("\"", "")
-			output.write(ok)
-			#print(ok)
+			ok = ok.split(',')
+			out = ''
+			for x in range(0,6):
+				out+=ok[x]
+				if x is not 5:
+					out+=','
+				else:
+					out+='\n'
+			output.write(out)
+			#print(out)
 
 os.remove(filename)
 
